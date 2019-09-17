@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :authorized, only: [ :create ]
+  skip_before_action :authorized, only: [ :index, :create ]
   before_action :set_user, only: [ :show ]
 
   def index
@@ -13,11 +13,12 @@ class UsersController < ApplicationController
 
   def create
 		@user = User.new(new_user_params)
-		if @user.save
+    if @user.valid?
+      @user.save
 			@token = encode_token({ user_id: @user.id })
-         render json: { user: @user, jwt: @token }, status: :created
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
 		else
-			render json: @user.errors.full_messages, status: :not_acceptable
+			render json: { error: 'failed to create user'}, status: :not_acceptable
 		end
 	end
 
@@ -27,6 +28,6 @@ class UsersController < ApplicationController
   end
 
   def new_user_params
-		params.permit(:username, :password)
+		params.require(:user).permit(:username, :password)
 	end
 end

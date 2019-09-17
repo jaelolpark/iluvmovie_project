@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  # skip_before_action :authorized, only: [ :index, :create ]
+  skip_before_action :authorized, only: [ :index, :create ]
 
   def index
     @favorites = Favorite.all
