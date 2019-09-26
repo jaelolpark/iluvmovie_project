@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Input } from 'semantic-ui-react';
 import '../../stylesheets/FirstPage.css'
-import { userLoginFetch } from '../../actions/authActions'
+import { userLoginFetch, loginUser } from '../../actions/authActions'
 import { connect } from 'react-redux';
 
 
@@ -18,7 +18,15 @@ class SignInPage extends Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    this.props.userLoginFetch(this.state)
+    this.props.userLoginFetch(this.state).then(data => {
+			if (data.user) {
+				localStorage.setItem('token', data.jwt)
+				this.props.history.push('/iluvmovie')
+				loginUser(data.user)
+			} else {
+				alert("Please Sign In properly!")
+			}
+    })
   }
 
   render() {
@@ -27,10 +35,10 @@ class SignInPage extends Component {
         <Form id='signup' className="ui inverted form" onSubmit={this.handleSubmit}>
           <h1 className='title'>Sign-In</h1>
           <Form.Field>
-            <Input icon='user' iconPosition='left' name="username" placeholder="Username" type="text" onChange={this.handleChange} />
+            <Input icon='user' iconPosition='left' name="username" value={this.state.username} placeholder="Username" type="text" onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
-            <Input icon='lock' iconPosition='left' name="password" placeholder="Password" type="password" onChange={this.handleChange} />
+            <Input icon='lock' iconPosition='left' name="password" value={this.state.password} placeholder="Password" type="password" onChange={this.handleChange} />
           </Form.Field>
           <Button className='submit-btn' color='red' type='submit' fluid size='large'>Submit</Button>
         </Form>

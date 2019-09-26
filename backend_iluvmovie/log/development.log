@@ -2399,3 +2399,813 @@ Processing by UsersController#create as JSON
 Completed 201 Created in 270ms (Views: 7.6ms | ActiveRecord: 27.6ms)
 
 
+Started POST "/users" for ::1 at 2019-09-26 13:38:29 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"deka", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "deka"], ["password_digest", "$2a$12$HqoWPujpkSi98toHv7AWvevyWf8TOKEn1.QSzxehNqc7n6zMmbRDS"], ["created_at", "2019-09-26 17:38:30.225815"], ["updated_at", "2019-09-26 17:38:30.225815"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.3ms)
+Completed 201 Created in 243ms (Views: 10.4ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 13:49:27 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.6ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.23ms)
+Completed 202 Accepted in 231ms (Views: 13.7ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:13:59 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (17.5ms)
+Completed 202 Accepted in 252ms (Views: 19.5ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:16:07 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.17ms)
+Completed 202 Accepted in 220ms (Views: 3.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:16:32 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 3ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:16:36 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:19:09 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 401 Unauthorized in 15ms (Views: 2.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:19:14 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.37ms)
+Completed 202 Accepted in 253ms (Views: 11.8ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:19:32 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.51ms)
+Completed 202 Accepted in 239ms (Views: 6.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:20:50 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.03ms)
+Completed 202 Accepted in 237ms (Views: 5.5ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:30:24 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (15.01ms)
+Completed 202 Accepted in 244ms (Views: 15.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:32:04 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (14.72ms)
+Completed 202 Accepted in 241ms (Views: 8.2ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:32:08 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 401 Unauthorized in 4ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:35:00 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.9ms)
+Completed 202 Accepted in 227ms (Views: 7.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:35:51 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.54ms)
+Completed 202 Accepted in 223ms (Views: 7.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:36:11 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.53ms)
+Completed 202 Accepted in 223ms (Views: 7.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:40:17 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.43ms)
+Completed 202 Accepted in 229ms (Views: 5.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:43:19 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.89ms)
+Completed 202 Accepted in 231ms (Views: 14.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:53:22 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.35ms)
+Completed 202 Accepted in 242ms (Views: 14.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 14:55:01 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.24ms)
+Completed 202 Accepted in 233ms (Views: 7.6ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 14:55:35 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"andrew", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andrew"], ["password_digest", "$2a$12$UBqnqAVv3QUPfeYfeA9OkuRZ2Hy3GgX5fuYbMz57Sz7BtMEWvUHl2"], ["created_at", "2019-09-26 18:55:35.262321"], ["updated_at", "2019-09-26 18:55:35.262321"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.66ms)
+Completed 201 Created in 240ms (Views: 2.5ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:05:55 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jae"], ["password_digest", "$2a$12$Ndl/dutXdvPSaFv2MmVX6OzIjg6O/E6Y5c7YWMhKjYtmohjZoywxu"], ["created_at", "2019-09-26 19:05:55.826000"], ["updated_at", "2019-09-26 19:05:55.826000"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.6ms)
+Completed 201 Created in 230ms (Views: 4.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:06:06 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.2ms)
+Completed 202 Accepted in 224ms (Views: 3.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:07:01 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.6ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.72ms)
+Completed 202 Accepted in 221ms (Views: 4.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:08:02 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.75ms)
+Completed 202 Accepted in 219ms (Views: 3.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:12:06 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.05ms)
+Completed 202 Accepted in 222ms (Views: 3.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:13:49 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.6ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.21ms)
+Completed 202 Accepted in 239ms (Views: 6.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:15:04 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.35ms)
+Completed 202 Accepted in 220ms (Views: 5.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:15:56 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.44ms)
+Completed 202 Accepted in 216ms (Views: 3.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:17:19 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.66ms)
+Completed 202 Accepted in 221ms (Views: 3.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:18:01 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"ffdsaf", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"ffdsaf", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ffdsaf"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:18:05 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.79ms)
+Completed 202 Accepted in 218ms (Views: 3.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:20:27 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.99ms)
+Completed 202 Accepted in 256ms (Views: 14.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:20:46 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.57ms)
+Completed 202 Accepted in 234ms (Views: 11.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:21:37 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"vmdklfmn", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"vmdklfmn", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "vmdklfmn"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:21:55 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.0ms)
+Completed 202 Accepted in 217ms (Views: 3.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:27:44 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"vnnvvnvn", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "vnnvvnvn"], ["password_digest", "$2a$12$8DvpIJlKjlTT.OWRp1VkMOVBANn0TyOcnshxSSwMrAPLKhb8nOEee"], ["created_at", "2019-09-26 19:27:44.817427"], ["updated_at", "2019-09-26 19:27:44.817427"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.99ms)
+Completed 201 Created in 245ms (Views: 4.1ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:33:59 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"vvvvvvv", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "vvvvvvv"], ["password_digest", "$2a$12$KKRcdovcV5YMOI1zyOx4K./651KB5HlnP9Tkf7xemJEJL/HazVDKy"], ["created_at", "2019-09-26 19:33:59.932920"], ["updated_at", "2019-09-26 19:33:59.932920"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 8]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 8]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.18ms)
+Completed 201 Created in 252ms (Views: 9.5ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:41:26 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"hahahahahahah", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "hahahahahahah"], ["password_digest", "$2a$12$ZqeRz5E.fpIIipI5.HBWuOzGm4LjRRHmXTJgA.RUcr0SWcfjoYJte"], ["created_at", "2019-09-26 19:41:26.981646"], ["updated_at", "2019-09-26 19:41:26.981646"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:17
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.09ms)
+Completed 201 Created in 234ms (Views: 3.7ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:46:31 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asa"], ["password_digest", "$2a$12$av9I58JBbBoskVKJEImX2.uxxA63oQoTGpUwzshte/Koa.Q.qSb7a"], ["created_at", "2019-09-26 19:46:32.251838"], ["updated_at", "2019-09-26 19:46:32.251838"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.72ms)
+Completed 201 Created in 279ms (Views: 11.8ms | ActiveRecord: 32.8ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:49:14 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (7.8ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (36.2ms)
+Completed 202 Accepted in 281ms (Views: 23.6ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:50:38 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asa"], ["password_digest", "$2a$12$BGdw.djyLJhoWn/.oGAzIOuJaUldDvB0DW3.3JM5JcezxjPFKP/16"], ["created_at", "2019-09-26 19:50:38.713779"], ["updated_at", "2019-09-26 19:50:38.713779"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 11]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 11]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.47ms)
+Completed 201 Created in 237ms (Views: 3.0ms | ActiveRecord: 3.4ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (asa) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'asa') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'asa')[0m
+Started POST "/users" for ::1 at 2019-09-26 15:55:42 -0400
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jaelolpark/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asa"], ["password_digest", "$2a$12$rq0bY.c3apqljwCPnN28IO0mnOHzCRk2RHNQrwtoitu41WaWJq2Z."], ["created_at", "2019-09-26 19:55:43.187774"], ["updated_at", "2019-09-26 19:55:43.187774"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (42.16ms)
+Completed 201 Created in 311ms (Views: 42.2ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:55:49 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asa"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 232ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:55:53 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asa"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.54ms)
+Completed 202 Accepted in 224ms (Views: 2.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:56:02 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"asa", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asa"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.8ms)
+Completed 202 Accepted in 228ms (Views: 2.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 15:56:06 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (20.48ms)
+Completed 202 Accepted in 247ms (Views: 17.7ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 15:57:20 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asa2", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asa2"], ["password_digest", "$2a$12$j7Oc0U49q4SY0GU1HIcDfeny5ePOEoSlRWiFF.YsgcCH3epVfMyte"], ["created_at", "2019-09-26 19:57:20.275603"], ["updated_at", "2019-09-26 19:57:20.275603"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.43ms)
+Completed 201 Created in 251ms (Views: 3.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:00:06 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"jaeasdf", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jaeasdf"], ["password_digest", "$2a$12$EABSH0ViSrxfLVrSkMvJIesWVLCEcqjc1hZaFe7Y0z3I5nzD3OTaG"], ["created_at", "2019-09-26 20:00:06.709939"], ["updated_at", "2019-09-26 20:00:06.709939"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 14]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 14]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.34ms)
+Completed 201 Created in 244ms (Views: 2.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:00:32 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"ggagaga", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "ggagaga"], ["password_digest", "$2a$12$tYJe9vuWVvxaLCh35gltguytD1t2TgjVXH6aWqMjgLHJTvoCTjc26"], ["created_at", "2019-09-26 20:00:32.730183"], ["updated_at", "2019-09-26 20:00:32.730183"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 15]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.2ms)
+Completed 201 Created in 232ms (Views: 2.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 16:00:50 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"kkka", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"kkka", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kkka"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:00:59 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asvasdfasd", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asvasdfasd"], ["password_digest", "$2a$12$XOk.yYDcotiUf1H8byJUHOYGPMLM14QCTQq7oNOYVirwOopVxLlQi"], ["created_at", "2019-09-26 20:00:59.849510"], ["updated_at", "2019-09-26 20:00:59.849510"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 16]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 16]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.45ms)
+Completed 201 Created in 230ms (Views: 2.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:01:02 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asvasdfasd", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asvasdfasd"], ["password_digest", "$2a$12$2Aj2AxLjAMu5LMCidfotLe6/pj4kKJJD3G9.4wDmLHWdQGZZrmQqC"], ["created_at", "2019-09-26 20:01:02.739631"], ["updated_at", "2019-09-26 20:01:02.739631"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 17]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 17]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.14ms)
+Completed 201 Created in 224ms (Views: 2.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 16:01:19 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"jae", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jae"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] No serializer found for resource: #<Favorite id: 1, user_id: 1, movie_id: 1, created_at: "2019-09-16 17:58:17", updated_at: "2019-09-16 17:58:17">
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.96ms)
+Completed 202 Accepted in 233ms (Views: 3.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:01:27 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$12$fuEYTdWc8xHoJ4l4DngHSurRpkY5Xwrw.DULco/zsquVDoJKkmYCi"], ["created_at", "2019-09-26 20:01:27.947032"], ["updated_at", "2019-09-26 20:01:27.947032"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 18]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 18]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.56ms)
+Completed 201 Created in 230ms (Views: 2.5ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/users" for ::1 at 2019-09-26 16:15:58 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"faiodjf", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "faiodjf"], ["password_digest", "$2a$12$YUJeApS1GGVp1dISh.k4JeEaW3ZWIxdv2rakW8kqkzJiuJmYzB9h6"], ["created_at", "2019-09-26 20:15:58.728894"], ["updated_at", "2019-09-26 20:15:58.728894"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:18
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 19]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 19]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (11.96ms)
+Completed 201 Created in 266ms (Views: 12.5ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/login" for ::1 at 2019-09-26 16:16:04 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"haha", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"haha", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "haha"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.98ms)
+Completed 202 Accepted in 219ms (Views: 2.8ms | ActiveRecord: 1.3ms)
+
+

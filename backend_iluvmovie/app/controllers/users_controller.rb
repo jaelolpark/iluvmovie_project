@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def create
-		@user = User.new(new_user_params)
+    @user = User.new(new_user_params)
+    
     if @user.valid?
       @user.save
 			@token = encode_token({ user_id: @user.id })
