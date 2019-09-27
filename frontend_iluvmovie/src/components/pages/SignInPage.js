@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form, Input } from 'semantic-ui-react';
-import '../../stylesheets/FirstPage.css'
+import '../../stylesheets/Entrance.css'
 import { userLoginFetch, loginUser } from '../../actions/authActions'
 import { connect } from 'react-redux';
 

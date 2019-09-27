@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createUser, loginUser } from '../../actions/authActions'
 
 import { Button, Form, Input } from 'semantic-ui-react';
-import '../../stylesheets/FirstPage.css';
+import '../../stylesheets/Entrance.css';
 
 class SignUpPage extends Component {
   state = {
@@ -16,19 +16,18 @@ class SignUpPage extends Component {
       [event.target.name]: event.target.value
     })
   }
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault()
     this.props.createUser(this.state)
     .then(data => {
-			if (data.user) {
-				localStorage.setItem('token', data.jwt)
-				this.props.history.push('/iluvmovie')
-				loginUser(data.user)
-			} else {
-				alert("Sorry, username has already been taken!")
-			}
+      if (data.user) {
+        localStorage.setItem('token', data.jwt)
+        this.props.history.push('/iluvmovie')
+        loginUser(data.user)
+      } else {
+        alert("sorry, username has already been taken")
+      }
     })
-    
   }
 
   render() {

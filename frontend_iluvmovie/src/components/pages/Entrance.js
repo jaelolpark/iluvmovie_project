@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import '../../stylesheets/FirstPage.css'
+import '../../stylesheets/Entrance.css'
 import { Button } from 'semantic-ui-react';
 
-export default class FirstPage extends Component {
+export default class Entrance extends Component {
   render() {
     return (
       <div id='background-page' className='ui inverted vertical center aligned segment'>
