@@ -21,7 +21,7 @@ class SignInPage extends Component {
     this.props.userLoginFetch(this.state).then(data => {
 			if (data.user) {
 				localStorage.setItem('token', data.jwt)
-				this.props.history.push('/iluvmovie')
+				this.props.history.push('/home')
 				loginUser(data.user)
 			} else {
 				alert("Please Sign In properly!")
