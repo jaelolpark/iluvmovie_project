@@ -1,28 +1,37 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom';
-import { Menu, Segment } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Menu, Segment } from 'semantic-ui-react';
+
 
 class NavBar extends Component {
-  handleSignout = () => {
-    this.props.history.push('/')
-    localStorage.clear()
- } 
 
+  initPath = () => {
+    let path = window.location.pathname
+    return path[1].toUpperCase() + path.slice(2)
+  }
+
+  state = {
+    path: this.initPath()
+  }
+
+  getPath = e => this.setState({ path: e.target.innerText })
 
   render() {
-
     return (
       <div>
        <Segment inverted>
         <Menu inverted pointing secondary>
-          <Menu.Item
-            name='home'
-            active={this.props.location.pathname==='/home'}
-            onClick={() => this.props.history.push('/home')}/>
+          <Link to='/home' onClick={this.getPath}>
+            <Menu.Item name='home' active={this.state.path === 'Home'}/>
+          </Link>
+
+          <Link to='/profile' onClick={this.getPath}>
+            <Menu.Item name='profile' active={this.state.path === 'Profile'}/>
+          </Link>
+
           <Menu.Menu position='right'>
-            <Menu.Item
-              name='SIGN-OUT'
-              onClick={this.handleSignout}/>
+            <Menu.Item name='SIGN-OUT' onClick={this.props}/>
           </Menu.Menu>
         </Menu>
       </Segment>
@@ -31,5 +40,9 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(NavBar);
 
+const MapDispatchToProps = dispatch => ({
+  logout: () => dispatch({ type: "LOGOUT_USER" })
+})
+
+export default connect(null, MapDispatchToProps)(NavBar);

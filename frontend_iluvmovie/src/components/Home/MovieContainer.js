@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { getMovie } from '../../actions/movieActions'
 import ReactLoading from 'react-loading';
 
-//
 
 class MovieContainer extends Component {
 

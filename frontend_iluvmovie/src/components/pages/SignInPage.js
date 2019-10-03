@@ -52,8 +52,8 @@ class SignInPage extends Component {
   }
 }
 
-let mapDispatchToProps = dispatch => ({
+const MapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
 })
   
-export default connect(null, mapDispatchToProps)(SignInPage);
+export default connect(null, MapDispatchToProps)(SignInPage);
