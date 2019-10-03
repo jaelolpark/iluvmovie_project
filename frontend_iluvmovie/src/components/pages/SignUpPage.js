@@ -22,7 +22,7 @@ class SignUpPage extends Component {
     .then(data => {
       if (data.user) {
         localStorage.setItem('token', data.jwt)
-        this.props.history.push('/iluvmovie')
+        this.props.history.push('/home')
         loginUser(data.user)
       } else {
         alert("sorry, username has already been taken")

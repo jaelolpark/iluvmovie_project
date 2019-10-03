@@ -5,7 +5,7 @@ import './stylesheets/App.css';
 import Entrance from './components/pages/Entrance'
 import SignInPage from './components/pages/SignInPage'
 import SignUpPage from './components/pages/SignUpPage'
-import HomeContainer from './components/pages/HomeContainer'
+import Home from './components/pages/Home'
 
 class App extends Component {
   render() { 
@@ -15,7 +15,8 @@ class App extends Component {
           <Route exact path='/' component={Entrance} />
           <Route exact path='/sign-in' component={SignInPage} />
           <Route exact path='/sign-up' component={SignUpPage} />
-          <Route exact path='/iluvmovie' component={HomeContainer} />
+          <Route exact path='/home' component={Home} />
+        
         </Switch>
       </BrowserRouter>
     );
