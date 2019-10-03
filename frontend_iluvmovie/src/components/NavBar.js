@@ -8,7 +8,10 @@ class NavBar extends Component {
 
   initPath = () => {
     let path = window.location.pathname
-    return path[1].toUpperCase() + path.slice(2)
+    if (path !== '/sign-in' && path !== '/sign-up')
+      return path[1].toUpperCase() + path.slice(2)
+    else
+      return 'Home'
   }
 
   state = {
