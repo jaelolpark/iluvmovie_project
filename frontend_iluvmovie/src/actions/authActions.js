@@ -20,7 +20,14 @@ export const userLoginFetch = user => {
         Accept: 'application/json',
       },
       body: JSON.stringify({user})
-    }).then(resp => resp.json())
+    })
+    .then(res => res.json())
+    .then(res => {
+      if (res.user && res.jwt) {
+        localStorage.setItem('token', res.jwt)
+        dispatch({ type: 'LOGIN_USER', payload: res.user })
+      }
+    })
   }
 }
 

@@ -7,9 +7,12 @@ const GB = `https://api-public.guidebox.com/v2/us/${GB_KEY}`
 
 export const getMovie = () => {
   return dispatch => {
-    return fetch(`${GB}/movies/all/0/56`, {
-      method: "GET",
-   }).then(res => res.json())
+  	fetch(`${GB}/movies/all/0/56`)
+  	.then(res => res.json())
+  	.then(res => {
+  		if (res.results)
+  			dispatch({ type: "Display_Movies", data: res.results })
+  	})
   } 
 }
 
