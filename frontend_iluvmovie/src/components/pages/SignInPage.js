@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Button, Form, Input } from 'semantic-ui-react';
 import '../../stylesheets/Entrance.css'
-import { userLoginFetch, loginUser } from '../../actions/authActions'
-
-import { connect } from 'react-redux';
-
+import { userLoginFetch } from '../../actions/authActions'
 
 
 class SignInPage extends Component {
@@ -54,7 +52,7 @@ class SignInPage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+let mapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
 })
   

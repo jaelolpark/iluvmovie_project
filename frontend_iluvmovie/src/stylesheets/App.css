@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+.MovieContainer {
+  padding: 50px 0;
+}
+
+.card-group {
+  width: 90vw;
+  margin: auto !important;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
