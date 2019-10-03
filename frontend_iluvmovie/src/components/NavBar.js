@@ -31,7 +31,7 @@ class NavBar extends Component {
           </Link>
 
           <Menu.Menu position='right'>
-            <Menu.Item name='SIGN-OUT' onClick={this.props}/>
+            <Menu.Item name='SIGN-OUT' onClick={this.props.logout}/>
           </Menu.Menu>
         </Menu>
       </Segment>
