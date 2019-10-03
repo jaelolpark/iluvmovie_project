@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Button, Form, Input } from 'semantic-ui-react';
 import '../../stylesheets/Entrance.css'
 import { userLoginFetch, loginUser } from '../../actions/authActions'
+import { getMovie } from '../../actions/movieActions'
+
 import { connect } from 'react-redux';
+
 
 
 class SignInPage extends Component {
@@ -22,7 +25,10 @@ class SignInPage extends Component {
 			if (data.user) {
 				localStorage.setItem('token', data.jwt)
 				this.props.history.push('/home')
-				loginUser(data.user)
+        loginUser(data.user)
+        getMovie()
+				.then((data) => {this.props.getMovie(data.results)})
+				.then(() => this.props.history.push(`/home`))
 			} else {
 				alert("Please Sign In properly!")
 			}
@@ -52,4 +58,4 @@ const mapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
   })
   
-export default connect(null, mapDispatchToProps)(SignInPage);
+export default connect(null, mapDispatchToProps, getMovie)(SignInPage);

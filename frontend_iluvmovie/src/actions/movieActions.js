@@ -1,32 +1,22 @@
-const IMDB = `https://api.themoviedb.org/3/movie`
-const IMDB_KEY = `a4c9d9048cf23a4049939500ec5adc03`
+const GB_KEY = `5abc9711d6db541afe5eb256523bfbc6679dfce4`
+const GB = `https://api-public.guidebox.com/v2/us/${GB_KEY}`
+
+// const IMDB_KEY = `a4c9d9048cf23a4049939500ec5adc03`
+// const IMDB = `https://api.themoviedb.org/3/movie`
 
 
 export const getMovie = () => {
   return dispatch => {
-    return fetch(`http://localhost:3000/users`, {
+    return fetch(`${GB}/movies/all/0/56`, {
       method: "GET",
    }).then(res => res.json())
   } 
 }
 
-export const moreMovie = () => {
-  return dispatch => {
-    return fetch(`http://localhost:3000/users`, {
-      method: "GET",
-   }).then(res => res.json())
-  } 
-}
-
-
-export const getMovies = () => {
-  return fetch(`${GB_BASE}/movies/all/0/56`, {
-     method: "GET"
-  }).then(res => res.json())
-} 
-
-export const getMoreMovies = (start) => {
-  return fetch(`${GB_BASE}/movies/all/${start}/56`, {
-     method: "GET"
-  }).then(res => res.json())
-}
+// export const moreMovie = (more) => {
+//   return dispatch => {
+//     return fetch(`${GB}/movies/all/${more}/56`, {
+//       method: "GET",
+//    }).then(res => res.json())
+//   } 
+// }
