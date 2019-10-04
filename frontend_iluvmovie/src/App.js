@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './stylesheets/App.css';
 
-
-import NavBar from './components/NavBar'
-import Home from './components/pages/Home'
-import Profile from './components/pages/Profile'
-
 import Entrance from './components/pages/Entrance'
 import SignInPage from './components/pages/SignInPage'
 import SignUpPage from './components/pages/SignUpPage'
+
+import NavBar from './components/NavBar'
+import Home from './components/pages/Home'
+import Favorites from './components/pages/Favorites'
 
 class App extends Component {
 
@@ -29,7 +28,7 @@ class App extends Component {
         <NavBar/>
         <Switch>
           <Route exact path='/home' component={Home} />
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/Favorites' component={Favorites} />
           <Redirect to='/home' />
         </Switch>
       </Fragment>

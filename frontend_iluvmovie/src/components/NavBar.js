@@ -29,8 +29,8 @@ class NavBar extends Component {
             <Menu.Item name='home' active={this.state.path === 'Home'}/>
           </Link>
 
-          <Link to='/profile' onClick={this.getPath}>
-            <Menu.Item name='profile' active={this.state.path === 'Profile'}/>
+          <Link to='/Favorites' onClick={this.getPath}>
+            <Menu.Item name='Favorites' active={this.state.path === 'Favorites'}/>
           </Link>
 
           <Menu.Menu position='right'>
