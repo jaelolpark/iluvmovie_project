@@ -4,6 +4,7 @@ import MovieCard from './MovieCard'
 import { connect } from 'react-redux';
 import { getMovie } from '../../actions/movieActions'
 import ReactLoading from 'react-loading';
+import '../../stylesheets/Home.css'
 
 
 class MovieContainer extends Component {
@@ -24,7 +25,8 @@ class MovieContainer extends Component {
     }
     else {
       return (
-        <Card.Group itemsPerRow={7} className="card-group">
+        <div id='cardcontainer'>
+        <Card.Group itemsPerRow={5} className="card-group">
         {
           this.props.Movies.map( movie => 
             <MovieCard 
@@ -35,6 +37,7 @@ class MovieContainer extends Component {
           )
         }
         </Card.Group>
+        </div>
       )
     }
   }

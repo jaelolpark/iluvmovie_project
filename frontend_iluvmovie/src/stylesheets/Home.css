@@ -1,0 +1,23 @@
+#HomeBar-container {
+  display: flex;
+  padding: 3em 2em 2em 2em;  
+  margin-bottom: 2em;
+  flex-direction: column;
+  background-color: #1b1c1d;
+  background-size: cover;
+  width: auto;
+  
+
+}
+
+#HomeBar-header {
+  font-size: 100px;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 2px 2px 4px white;
+  color: red;
+}
+
+#cardcontainer {
+  background-color: white;
+}

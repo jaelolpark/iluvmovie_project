@@ -23,8 +23,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-       <Segment inverted>
-        <Menu inverted pointing secondary>
+        <Menu pointing>
           <Link to='/home' onClick={this.getPath}>
             <Menu.Item name='home' active={this.state.path === 'Home'}/>
           </Link>
@@ -37,7 +36,6 @@ class NavBar extends Component {
             <Menu.Item name='SIGN-OUT' onClick={this.props.logout}/>
           </Menu.Menu>
         </Menu>
-      </Segment>
       </div>
     )
   }
