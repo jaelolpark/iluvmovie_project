@@ -16,10 +16,13 @@ export const getMovie = () => {
   } 
 }
 
-// export const moreMovie = (more) => {
-//   return dispatch => {
-//     return fetch(`${GB}/movies/all/${more}/50`, {
-//       method: "GET",
-//    }).then(res => res.json())
-//   } 
-// }
+export const moreMovie = (more) => {
+  return dispatch => {
+		return fetch(`${GB}/movies/all/${more}/50`)
+		.then(res => res.json())
+		.then(res => {
+		if (res.results)
+			dispatch({ type: "Display_More_Movies", data: res.results })
+	})
+	} 
+}
