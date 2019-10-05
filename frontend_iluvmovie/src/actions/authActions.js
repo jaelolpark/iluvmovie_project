@@ -35,17 +35,9 @@ export const userLoginFetch = user => {
         localStorage.setItem('token', res.jwt)
         dispatch({ type: 'LOGIN_USER', payload: res.user })
       } else {
-        alert("Please Sign In properly!")
+        alert("Invalid Sign In!")
       }
     })
   }
 }
 
-export const loginUser = userObj => ({
-  type: 'LOGIN_USER',
-  payload: userObj
-})
-
-export const logoutUser = () => ({
-  type: 'LOGOUT_USER'
-})

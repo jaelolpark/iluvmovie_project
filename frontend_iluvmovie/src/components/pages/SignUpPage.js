@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUser, loginUser } from '../../actions/authActions'
+import { createUser } from '../../actions/authActions'
 
 import { Button, Form, Input } from 'semantic-ui-react';
 import '../../stylesheets/Entrance.css';
