@@ -16,7 +16,7 @@ class MovieContainer extends Component {
   }
 
   renderMovieCards = () => {
-    if (this.props.Movies.length === 0) {
+    if (this.props.allMovies.length === 0) {
       return (
         <div className="loading-container">
           <ReactLoading type="cylon" color="#000" height={667} width={375} />
@@ -28,7 +28,7 @@ class MovieContainer extends Component {
         <div id='cardcontainer'>
         <Card.Group itemsPerRow={5} className="card-group">
         {
-          this.props.Movies.map( movie => 
+          this.props.allMovies.map( movie => 
             <MovieCard 
               key={movie.id}
               movieId={movie.id}
@@ -52,7 +52,7 @@ class MovieContainer extends Component {
 } 
 
 let mapStateToProps = state => ({
-  Movies: state.movies.allMovies
+  allMovies: state.movies.allMovies
 })
 
 let mapDispatchToProps = dispatch => ({
