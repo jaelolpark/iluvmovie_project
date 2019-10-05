@@ -8,7 +8,15 @@ export const createUser = user => {
      },
      body: JSON.stringify({user})
    }).then(res => res.json())
-  } 
+    .then(res => {
+      if (res.user && res.jwt) {
+        localStorage.setItem('token', res.jwt)
+        dispatch({ type: 'LOGIN_USER', payload: res.user })
+      } else {
+        alert("Sorry, username has already been taken")
+      }
+    })
+  }
 }
 
 export const userLoginFetch = user => {
@@ -26,6 +34,8 @@ export const userLoginFetch = user => {
       if (res.user && res.jwt) {
         localStorage.setItem('token', res.jwt)
         dispatch({ type: 'LOGIN_USER', payload: res.user })
+      } else {
+        alert("Please Sign In properly!")
       }
     })
   }

@@ -19,15 +19,17 @@ class SignUpPage extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.createUser(this.state)
-    .then(data => {
-      if (data.user) {
-        localStorage.setItem('token', data.jwt)
-        this.props.history.push('/home')
-        loginUser(data.user)
-      } else {
-        alert("sorry, username has already been taken")
-      }
-    })
+
+
+    // .then(data => {
+    //   if (data.user) {
+    //     localStorage.setItem('token', data.jwt)
+    //     this.props.history.push('/home')
+    //     loginUser(data.user)
+    //   } else {
+    //     alert("sorry, username has already been taken")
+    //   }
+    // })
   }
 
   render() {
@@ -49,8 +51,8 @@ class SignUpPage extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+const MapDispatchToProps = dispatch => ({
   createUser: userInfo => dispatch(createUser(userInfo))
 })
 
-export default connect(null, mapDispatchToProps)(SignUpPage);
+export default connect(null, MapDispatchToProps)(SignUpPage);
