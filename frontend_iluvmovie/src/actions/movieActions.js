@@ -23,6 +23,17 @@ export const moreMovie = (more) => {
 		.then(res => {
 		if (res.results)
 			dispatch({ type: "Display_More_Movies", data: res.results })
-	})
+		})
+	} 
+}
+
+export const getMovieDetails = (movieId) => {
+	return dispatch => {
+		return fetch(`${GB}/movie/${movieId}`)
+		.then(res => res.json())
+		.then(res => {
+		if (res.results)
+			dispatch({ type: "Click_Movie_Info", data: res.results })
+		})
 	} 
 }

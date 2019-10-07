@@ -10,6 +10,7 @@ import SignUpPage from './components/pages/SignUpPage'
 import NavBar from './components/NavBar'
 import Home from './components/pages/Home'
 import Favorites from './components/pages/Favorites'
+import MoviePage from './components/MoviePage/MoviePage'
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/home' component={Home} />
           <Route exact path='/Favorites' component={Favorites} />
+          <Route exact path='/movies/:id' component={MoviePage} />
           <Redirect to='/home' />
         </Switch>
       </Fragment>

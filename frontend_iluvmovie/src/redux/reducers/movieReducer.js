@@ -11,6 +11,9 @@ export default (state = initialState, action) => {
     case 'Display_More_Movies':
       return {...state, allMovies: [...state.allMovies, ...action.data]}
     
+    case 'Click_Movie_Info':
+      return {...state, movieInfo: action.movieInfo}
+
     default: { return initialState; }
   }
 }
